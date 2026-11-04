@@ -804,7 +804,7 @@
     var go = function () {
       ['pointerdown', 'touchend', 'click', 'keydown'].forEach(function (ev) { document.removeEventListener(ev, go, true); });
       fallbackArmed = false;
-      video.muted = true;
+      video.muted = false;
       playVideo();
     };
     ['pointerdown', 'touchend', 'click', 'keydown'].forEach(function (ev) { document.addEventListener(ev, go, true); });
@@ -816,7 +816,8 @@
     videoWanted = true;
 
     // video: muted + loop + playsinline, then autoplay
-    video.muted = true; video.defaultMuted = true;
+    video.muted = false; 
+    video.defaultMuted = false;
     video.loop = true;
     video.controls = false;
     video.setAttribute('autoplay', '');
