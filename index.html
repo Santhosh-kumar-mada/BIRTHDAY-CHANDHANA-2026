@@ -1,11 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#ff6fb7">
+<title>A Birthday Surprise For Chandana 🌸</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello Bro ! Ee website pani chesthundhi .</h1>
+
+<!-- Soft glow blobs + petals/hearts/sparkles canvas (drawn behind the screens) -->
+<div class="glow-blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="butterflies" id="butterflies" aria-hidden="true"></div>
+
+<!-- ================= SCREEN 1 : WELCOME ================= -->
+<section id="welcome" class="screen show active">
+  <div class="photo-wrap">
+    <div class="orbit orbit-a" id="orbitA"></div>
+    <div class="orbit orbit-b" id="orbitB"></div>
+    <div class="photo-frame">
+      <img src="assets/chandana.jpg" alt="Chandana" draggable="false">
+    </div>
+  </div>
+
+  <div class="welcome-text">
+    <h1 class="title">A Little Birthday Surprise For You! <span class="emo">🌸</span></h1>
+    <p class="subtitle">Something special is waiting for you...</p>
+    <button id="startBtn" class="btn" type="button">START THE GAME <span class="emo">💗</span></button>
+  </div>
+</section>
+
+<!-- ================= SCREEN 2 : GAME ================= -->
+<section id="game" class="screen">
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Game-over cinematic overlay (screen 3) -->
+  <div id="overlay">
+    <div class="bar bar-top"></div>
+    <div class="bar bar-bot"></div>
+    <div class="fall-layer" id="fallLayer"></div>
+    <div id="oops" class="stage">Oops! Game Over! <span class="emo">🌸</span></div>
+    <div id="day5" class="stage">
+      <div class="day-text">DAY 05 <span class="emo">🎬</span></div>
+      <div class="day-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCREEN 4 : BIRTHDAY VIDEO ================= -->
+<section id="birthday" class="screen">
+  <div class="b-layout">
+    <div class="video-wrap">
+      <div class="video-frame">
+        <!-- The video is only STARTED (autoplay attribute added + play()) by script.js after the game-over transition -->
+        <video id="bdayVideo" src="assets/birthday-video.mp4" muted loop playsinline preload="auto"
+               disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback"
+               tabindex="-1"></video>
+      </div>
+      <div class="frame-flowers" id="frameFlowers"></div>
+    </div>
+
+    <div class="b-text">
+      <h1 class="b-title">HAPPY BIRTHDAY TOPPER! <span class="emo">🎂💗</span></h1>
+      <p class="b-sub">Keep shining, keep smiling, and keep achieving great things! <span class="emo">🌸</span></p>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
